@@ -1,0 +1,4 @@
+The new cyber attack targeted systems across Russia and Germany.
+Malicious domains such as evilcorp.com and badguys.net were used.
+Several IPs like 192.168.1.1 and 10.0.0.5 were identified.
+Hashes found: 5f4dcc3b5aa765d61d8327deb882cf99.
