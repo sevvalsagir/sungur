@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sungur Threat Intelligence Extractor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sungur Threat Intelligence Extractor</h1>
+        <form method="post">
+            <textarea name="text" rows="10" placeholder="Paste your text here..."></textarea>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if threats %}
+        <h2>Extracted Threats</h2>
+        <div id="threats-output"></div>
+        <script>
+            const data = JSON.parse('{{ threats | tojson | safe }}');
+            const outputDiv = document.getElementById('threats-output');
+
+            for (const [key, values] of Object.entries(data)) {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                const title = document.createElement('h3');
+                title.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                card.appendChild(title);
+
+                if (values.length === 0) {
+                    const empty = document.createElement('p');
+                    empty.textContent = "No data found.";
+                    card.appendChild(empty);
+                } else {
+                    const list = document.createElement('ul');
+                    values.forEach(item => {
+                        const listItem = document.createElement('li');
+                        if (Array.isArray(item)) {
+                            listItem.textContent = item.join(" - ");
+                        } else {
+                            listItem.textContent = item;
+                        }
+                        list.appendChild(listItem);
+                    });
+                    card.appendChild(list);
+                }
+
+                outputDiv.appendChild(card);
+            }
+        </script>
+        {% endif %}
+    </div>
+</body>
+</html>
