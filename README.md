@@ -1,7 +1,5 @@
 # Sungur: Threat Intelligence Extractor
 
-# Sungur: Threat Intelligence Extractor
-
 ![Tests Passing](https://img.shields.io/badge/tests-passing-brightgreen)
 
 
