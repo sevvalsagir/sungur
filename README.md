@@ -1,5 +1,10 @@
 # Sungur: Threat Intelligence Extractor
 
+# Sungur: Threat Intelligence Extractor
+
+![Tests Passing](https://img.shields.io/badge/tests-passing-brightgreen)
+
+
 **Sungur** is a lightweight, AI-powered tool for extracting cybersecurity threat intelligence from unstructured text sources. It uses natural language processing (NLP) techniques to detect potential threats, vulnerabilities, indicators of compromise (IOCs), and security-related keywords.
 
 ## Features
