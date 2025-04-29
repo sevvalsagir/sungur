@@ -13,7 +13,9 @@ class ThreatExtractor:
             "ip_addresses": self.extract_ip_addresses(text),
             "domains": self.extract_domains(text),
             "hashes": self.extract_hashes(text),
-            "entities": self.extract_named_entities(text)
+            "entities": self.extract_named_entities(text),
+            "emails": self.extract_emails(text),
+            "urls": self.extract_urls(text)
         }
         return threats
 
@@ -32,3 +34,11 @@ class ThreatExtractor:
     def extract_named_entities(self, text):
         doc = self.nlp(text)
         return [(ent.text, ent.label_) for ent in doc.ents if ent.label_ in {"ORG", "PRODUCT", "GPE"}]
+
+    def extract_emails(self, text):
+        email_pattern = r'\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b'
+        return re.findall(email_pattern, text)
+
+    def extract_urls(self, text):
+        url_pattern = r'https?://[^\s]+'
+        return re.findall(url_pattern, text)

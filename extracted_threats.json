@@ -1,0 +1,31 @@
+{
+    "ip_addresses": [
+        "192.168.1.1",
+        "10.0.0.5"
+    ],
+    "domains": [
+        "evilcorp.com",
+        "badguys.net",
+        "cybermail.com",
+        "www.cyberthreats.org"
+    ],
+    "hashes": [
+        "5f4dcc3b5aa765d61d8327deb882cf99"
+    ],
+    "entities": [
+        [
+            "Russia",
+            "GPE"
+        ],
+        [
+            "Germany",
+            "GPE"
+        ]
+    ],
+    "emails": [
+        "threatreport@cybermail.com"
+    ],
+    "urls": [
+        "https://www.cyberthreats.org/reports/2024_attack.html."
+    ]
+}
